@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Skincare Recommendation System</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <form id="recommendation-form" method="post" action="/recommend">
+            <h2>Choose Your Skin Type</h2>
+            <div id="skin-type-container" class="form-group">
+                <label for="skin-type" class="label">Skin Type:</label>
+                <select id="skin-type" class="select" name="skin_type">
+                    {% for type in skin_types %}
+                    <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <h2>Select Skin Problems</h2>
+            <div id="skin-problems-container" class="form-group">
+                <label class="label">Skin Problems:</label>
+                {% for problem in skin_problems %}
+                <div class="checkbox">
+                    <input type="checkbox" id="{{ problem }}" name="skin_problems" value="{{ problem }}">
+                    <label for="{{ problem }}">{{ problem }}</label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <h2>Select Ingredients to Avoid</h2>
+            <div id="avoid-ingredients-container" class="form-group">
+                <label class="label">Ingredients to Avoid:</label>
+                {% for ingredient, info in skincare_ingredients_info.items() %}
+                <div class="checkbox">
+                    <input type="checkbox" id="{{ ingredient }}" name="avoid_ingredients" value="{{ ingredient }}">
+                    <label for="{{ ingredient }}">{{ ingredient }}</label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="submit-btn">Get Recommendations</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Skincare Recommendation System</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('recommendation-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+                const formData = new FormData(form);
+                fetch('/recommend', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.open();
+                    document.write(data);
+                    document.close();
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>

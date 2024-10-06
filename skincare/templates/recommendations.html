@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Skincare Recommendations</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        {% if recommendations %}
+        <h2>Recommended Products</h2>
+        <div class="recommendations">
+            {% for problem, ingredients in recommendations.items() %}
+            <div class="recommendation-box">
+                <h2>{{ problem|capitalize }}</h2>
+                <ul>
+                    {% for ingredient in ingredients %}
+                    <li>
+                        <h3>{{ ingredient }}</h3>
+                        <p><strong>Info:</strong> {{ skincare_ingredients_info[ingredient]["instructions"] }}</p>
+                        <p><strong>Rating:</strong> {{ skincare_ingredients_info[ingredient]["ratings"][problem] }}/5</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No recommendations available.</p>
+        {% endif %}
+
+    </div>
+    <div class="container">
+        {% if skincare_routine %}
+        <h2>Skincare Routine</h2>
+        <div class="skincare-routine">
+            <ul>
+                {% for form, ingredients in skincare_routine.items() %}
+                <li>
+                    <h3>{{ form|capitalize }}</h3>
+                    <ul>
+                        {% for ingredient in ingredients %}
+                        <li>{{ ingredient|capitalize }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+                <!-- Add sunscreen -->
+                <li>
+                    <h3>Sunscreen</h3>
+                    <ul>
+                        <li>SPF 50 PA++ UVA UVB Broad Spectrum</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        {% else %}
+        <p>No skincare routine available.</p>
+        {% endif %}
+    </div>
+    
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Skincare Recommendation System</p>
+        </div>
+    </footer>
+</body>
+</html>

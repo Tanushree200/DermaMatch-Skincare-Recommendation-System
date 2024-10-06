@@ -1,0 +1,157 @@
+/* styles.css */
+/* Define an array of background colors */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #bcb9d8; /* Light blue background color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #61678b;
+    padding: 10px 0;
+}
+
+header h1 {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
+    border: 1px solid #0f0e0e; /* Add border around each question */
+    border-radius: 8px; /* Add border radius for a rounded appearance */
+    padding: 10px; /* Add padding for spacing inside the box */
+    background-color: #f8f8f9;
+}
+
+
+/* Label styles */
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.select {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px; /* Increase font size */
+}
+select option {
+    font-size: 20px; /* Increase font size */
+}
+
+
+
+/* Checkbox styles */
+.checkbox {
+    margin-bottom: 10px;
+}
+/* Increase the size of checkboxes */
+.checkbox input {
+    margin-right: 10px;
+    transform: scale(2); /* Increase checkbox size */
+}
+
+
+
+/* Submit button styles */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #61678b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #61678b;
+}
+
+
+
+
+
+
+/* Recommendation box styles */
+.recommendation-box {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Skin problem styles */
+.recommendation-box h2 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+
+/* Recommended ingredients list styles */
+.recommendation-box p {
+    color: #666;
+}
+
+.recommendation-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recommendation-box ul li {
+    margin-bottom: 5px;
+}
+/* Skincare routine styles */
+.skincare-routine {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skincare-routine h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.skincare-routine ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skincare-routine ul li {
+    margin-bottom: 5px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f0f0f0;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer p {
+    color: #333;
+    margin: 0;
+}
